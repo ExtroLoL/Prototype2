@@ -17,17 +17,21 @@ public class MenuFrame extends JFrame {
         setSize(400, 300);
         setLayout(new BorderLayout());
 
+        // Panel to hold the menu buttons
         JPanel menuPanel = new JPanel(new GridLayout(4, 2));
 
+        // Panel for beverages
         JPanel beveragesPanel = new JPanel(new GridLayout(0, 1));
         JLabel beveragesLabel = new JLabel("Beverages");
         beveragesPanel.add(beveragesLabel);
 
+        // Create and add beverage buttons
         String[] beverageItems = {"Coffee", "Tea", "Juice"};
         for (String item : beverageItems) {
             JButton button = new JButton(item + " - RM" + MenuItems.getPrice(item));
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    // Handle button click event to add item to the order
                     JButton button = (JButton) e.getSource();
                     String selectedItem = button.getText();
                     String itemName = selectedItem.substring(0, selectedItem.indexOf(" - "));
@@ -50,15 +54,18 @@ public class MenuFrame extends JFrame {
         }
         menuPanel.add(beveragesPanel);
 
+        // Panel for foods
         JPanel foodsPanel = new JPanel(new GridLayout(0, 1));
         JLabel foodsLabel = new JLabel("Foods");
         foodsPanel.add(foodsLabel);
 
+        // Create and add food buttons
         String[] foodItems = {"Sandwich", "Cake", "Salad"};
         for (String item : foodItems) {
             JButton button = new JButton(item + " - RM" + MenuItems.getPrice(item));
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    // Handle button click event to add item to the order
                     JButton button = (JButton) e.getSource();
                     String selectedItem = button.getText();
                     String itemName = selectedItem.substring(0, selectedItem.indexOf(" - "));
@@ -81,28 +88,28 @@ public class MenuFrame extends JFrame {
         }
         menuPanel.add(foodsPanel);
 
+        // Panel for total and checkout button
+        JPanel totalPanel = new JPanel(new BorderLayout());
+        totalLabel = new JLabel("Total: RM0.00");
+        totalPanel.add(totalLabel, BorderLayout.CENTER);
+
         JButton checkoutButton = new JButton("Checkout");
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                // Dispose the Menu frame and display the Checkout frame
                 dispose();
-                double totalAmountWithTax = calculateTotalAmountWithTax(totalAmount);
-                JFrame checkoutFrame = new cafe.CheckoutFrame(totalAmountWithTax, orderItems);
+                JFrame checkoutFrame = new CheckoutFrame(totalAmount, orderItems);
                 checkoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 checkoutFrame.setVisible(true);
             }
         });
+        totalPanel.add(checkoutButton, BorderLayout.EAST);
 
-        totalLabel = new JLabel("Total: RM0.00");
+        // Initialize order items map
         orderItems = new HashMap<>();
 
+        // Add panels to the frame
         add(menuPanel, BorderLayout.CENTER);
-        add(totalLabel, BorderLayout.SOUTH);
-        add(checkoutButton, BorderLayout.EAST);
-    }
-
-    private double calculateTotalAmountWithTax(double totalAmount) {
-        double serviceTaxRate = 0.06; // GST 6%
-        double serviceTax = totalAmount * serviceTaxRate;
-        return totalAmount + serviceTax;
+        add(totalPanel, BorderLayout.SOUTH);
     }
 }

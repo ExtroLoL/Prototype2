@@ -7,18 +7,21 @@ import java.awt.event.ActionListener;
 
 public class HomePageFrame extends JFrame {
     public HomePageFrame() {
-        setTitle("Kopitiam Maju");
+        setTitle("Cafe Home");
         setSize(300, 200);
         setLayout(new BorderLayout());
 
+        // Panel to hold the welcome text
         JPanel textPanel = new JPanel();
-        JLabel welcomeLabel = new JLabel("Welcome to Kopitiam Maju Bossku!");
+        JLabel welcomeLabel = new JLabel("Welcome to the Cafe!");
         textPanel.add(welcomeLabel);
 
+        // Panel to hold the Enter button
         JPanel buttonPanel = new JPanel();
         JButton enterButton = new JButton("Enter");
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                // Dispose the Home Page frame and display the Menu frame
                 dispose();
                 JFrame menuFrame = new MenuFrame();
                 menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,6 +30,7 @@ public class HomePageFrame extends JFrame {
         });
         buttonPanel.add(enterButton);
 
+        // Add panels to the frame
         add(textPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuItems {
+
+    // List of menu items
     private static Map<String, Double> menuItems;
 
     static {
