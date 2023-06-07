@@ -96,7 +96,9 @@ public class MenuFrame extends JFrame {
         JButton checkoutButton = new JButton("Checkout");
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 // Dispose the Menu frame and display the Checkout frame
+
                 dispose();
                 JFrame checkoutFrame = new CheckoutFrame(totalAmount, orderItems);
                 checkoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -67,11 +67,12 @@ public class CheckoutFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Handle confirm button click event
                 String paymentMethod = (String) paymentComboBox.getSelectedItem();
-                // Implement payment processing logic here
-                // ...
-                // Display a success message or perform further actions as needed
+
+
+                // display payment confirmed message
                 JOptionPane.showMessageDialog(null, "Payment confirmed!");
-                // Dispose the Checkout frame
+
+                // dispose checkout frame
                 dispose();
             }
         });
@@ -86,7 +87,7 @@ public class CheckoutFrame extends JFrame {
     }
 
     private double calculateServiceTax(double totalAmount) {
-        double serviceTaxRate = 0.06; // 6% service tax rate in Malaysia
+        double serviceTaxRate = 0.06; // GST 6%
         return totalAmount * serviceTaxRate;
     }
 
