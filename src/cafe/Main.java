@@ -2,7 +2,11 @@ package cafe;
 
 import javax.swing.*;
 
-// Run the code here
+/**
+ * the main class that launches the application
+ *
+ * @author iqmalsukeri
+ */
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

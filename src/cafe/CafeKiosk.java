@@ -1,3 +1,9 @@
+/**
+ * the main class that launches the cafe application
+ * it displays the home page
+ * @author iqmalsukeri
+ */
+
 package cafe;
 
 import javax.swing.*;

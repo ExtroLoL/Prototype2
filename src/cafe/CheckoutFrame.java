@@ -1,3 +1,9 @@
+/**
+ * the frame for the checkout of the application.
+ *
+ * @author iqmalsukeri
+ */
+
 package cafe;
 
 import javax.swing.*;
@@ -79,7 +85,7 @@ public class CheckoutFrame extends JFrame {
         buttonPanel.add(repeatButton);
         buttonPanel.add(confirmButton);
 
-        // Add panels to the frame
+        // panels for the frame
         add(paymentPanel, BorderLayout.NORTH);
         add(orderPanel, BorderLayout.CENTER);
         add(totalPanel, BorderLayout.SOUTH);

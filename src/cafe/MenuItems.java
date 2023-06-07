@@ -1,3 +1,9 @@
+/**
+ * a utility class that provides the menu items and their prices.
+ *
+ * @author iqmalsukeri
+ */
+
 package cafe;
 
 import java.util.HashMap;
